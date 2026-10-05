@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan - Nama 1 & Nama 2</title>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Reset & General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Cormorant Garamond", serif;
+        background-color: #faf9f5;
+        color: #1e2d24;
+        line-height: 1.8;
+        text-align: center;
+        overflow-x: hidden;
+        font-size: 1.2rem;
+      }
+
+      /* Hero Section with Parallax Forest Overlay */
+      .hero {
+        background:
+          linear-gradient(rgba(14, 58, 47, 0.75), rgba(14, 58, 47, 0.85)),
+          url("https://images.unsplash.com/photo-1465488867967-ffb57e7f0a89?auto=format&fit=crop&w=1920&q=80")
+            no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #f3ebd5;
+        padding: 20px;
+        position: relative;
+      }
+      .hero h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        margin-bottom: 20px;
+        font-weight: 300;
+        color: #dfb15b;
+        animation: fadeInDown 1.5s ease-out;
+      }
+      .hero h1 {
+        font-family: "Pinyon Script", cursive;
+        font-size: 6.5rem;
+        margin-bottom: 20px;
+        font-weight: normal;
+        color: #dfb15b;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+        animation: fadeIn 2.2s ease-in;
+      }
+      .hero p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 4px;
+        color: #ffffff;
+        animation: fadeInUp 1.5s ease-out;
+      }
+
+      /* Countdown Container */
+      .countdown-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 40px;
+        animation: fadeIn 2.5s ease-in;
+      }
+      .countdown-box {
+        background: rgba(223, 177, 91, 0.1);
+        backdrop-filter: blur(8px);
+        padding: 12px 18px;
+        border-radius: 4px;
+        min-width: 80px;
+        border: 1px solid rgba(223, 177, 91, 0.3);
+      }
+      .countdown-box span {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #dfb15b;
+      }
+      .countdown-box label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      /* Section Styling */
+      section {
+        padding: 120px 20px;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+      h2.section-title {
+        font-family: "Pinyon Script", cursive;
+        font-size: 5rem;
+        color: #0e3a2f;
+        margin-bottom: 10px;
+      }
+      .sub-title {
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.85rem;
+        margin-bottom: 60px;
+        color: #8c764e;
+      }
+
+      /* Couple Section */
+      .couple-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (min-width: 768px) {
+        .couple-container {
+          flex-direction: row;
+        }
+      }
+      .profile {
+        flex: 1;
+        padding: 40px 30px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 15px 40px rgba(14, 58, 47, 0.05);
+        border: 1px solid #e8e3d5;
+        transition: transform 0.4s ease;
+      }
+      .profile:hover {
+        transform: translateY(-8px);
+      }
+      .profile h3 {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 1.8rem;
+        color: #0e3a2f;
+        margin-bottom: 15px;
+      }
+      .profile p {
+        font-size: 1.1rem;
+        color: #5c6c62;
+      }
+      .ampersand {
+        font-family: "Pinyon Script", cursive;
+        font-size: 5rem;
+        color: #dfb15b;
+        line-height: 1;
+      }
+
+      /* Event Details Card (Floral Gold Motif Accent) */
+      .event-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      @media (min-width: 768px) {
+        .event-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .event-card {
+        background-color: #ffffff;
+        border: 1px solid #e8e3d5;
+        border-radius: 8px;
+        padding: 50px 35px;
+        box-shadow: 0 15px 40px rgba(14, 58, 47, 0.04);
+        transition: transform 0.4s ease;
+      }
+      .event-card:hover {
+        transform: translateY(-8px);
+      }
+      .event-icon {
+        font-size: 2.5rem;
+        color: #dfb15b;
+        margin-bottom: 25px;
+      }
+      .event-card h3 {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 1.5rem;
+        color: #0e3a2f;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+      .event-card p {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        color: #3d4f43;
+      }
+
+      /* Map Section Styling */
+      .map-card {
+        background-color: #ffffff;
+        border: 1px solid #e8e3d5;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 15px 40px rgba(14, 58, 47, 0.04);
+        overflow: hidden;
+      }
+      .map-container {
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #e8e3d5;
+        margin-bottom: 30px;
+      }
+      .map-details p {
+        font-size: 1.2rem;
+        color: #0e3a2f;
+        margin-bottom: 20px;
+      }
+      .btn-maps {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background-color: #0e3a2f;
+        color: #f3ebd5;
+        text-decoration: none;
+        padding: 14px 35px;
+        border-radius: 4px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        transition: all 0.3s ease;
+        border: 1px solid #dfb15b;
+      }
+      .btn-maps:hover {
+        background-color: #dfb15b;
+        color: #0e3a2f;
+        box-shadow: 0 8px 25px rgba(223, 177, 91, 0.3);
+        transform: translateY(-3px);
+      }
+
+      /* RSVP Form */
+      .rsvp-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 50px 40px;
+        border-radius: 8px;
+        border: 1px solid #e8e3d5;
+        box-shadow: 0 15px 40px rgba(14, 58, 47, 0.05);
+      }
+      .form-group {
+        margin-bottom: 30px;
+        text-align: left;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #0e3a2f;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 14px 18px;
+        border: 1px solid #dcd7cd;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1.1rem;
+        color: #1e2d24;
+        outline: none;
+        background-color: #faf9f5;
+        transition: border-color 0.3s;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: #dfb15b;
+      }
+      .btn-submit {
+        background-color: #0e3a2f;
+        color: #f3ebd5;
+        border: 1px solid #dfb15b;
+        padding: 16px 35px;
+        border-radius: 4px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+      .btn-submit:hover {
+        background-color: #dfb15b;
+        color: #0e3a2f;
+        box-shadow: 0 8px 25px rgba(223, 177, 91, 0.3);
+      }
+
+      /* Floating Audio Player */
+      .music-controller {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+      }
+      .music-btn {
+        background-color: #0e3a2f;
+        color: #dfb15b;
+        border: 1px solid #dfb15b;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+      .music-btn:hover {
+        transform: scale(1.1);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #0a211b;
+        color: #f3ebd5;
+        padding: 60px 20px;
+        font-size: 1rem;
+        border-top: 2px solid #dfb15b;
+      }
+      footer p {
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+      }
+      footer p:first-child {
+        font-family: "Cinzel Decorative", serif;
+        font-size: 1.3rem;
+        color: #dfb15b;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Audio Control -->
+    <div class="music-controller">
+      <button class="music-btn" id="audioBtn" onclick="toggleAudio()">
+        <i class="fa-solid fa-music" id="musicIcon"></i>
+      </button>
+      <audio id="bgMusic" loop>
+        <source
+          src="La Maritza (Piano Cover) - Sylvie Vartan.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <h2>The Wedding Celebration Of</h2>
+      <h1>Nama 1 & Nama 2</h1>
+      <p>12 . 12 . 2026</p>
+
+      <!-- Live Countdown Timer -->
+      <div class="countdown-container">
+        <div class="countdown-box">
+          <span id="days">00</span>
+          <label>Hari</label>
+        </div>
+        <div class="countdown-box">
+          <span id="hours">00</span>
+          <label>Jam</label>
+        </div>
+        <div class="countdown-box">
+          <span id="minutes">00</span>
+          <label>Menit</label>
+        </div>
+        <div class="countdown-box">
+          <span id="seconds">00</span>
+          <label>Detik</label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Couple Section -->
+    <section id="couple">
+      <h2 class="section-title">Mempelai</h2>
+      <p class="sub-title">Memohon Doa Restu Anda</p>
+
+      <div class="couple-container">
+        <div class="profile">
+          <h3>Nama Mempelai Laki-Laki</h3>
+          <p>Putra dari Bapak - & Ibu -</p>
+        </div>
+        <div class="ampersand">&</div>
+        <div class="profile">
+          <h3>Nama Mempelai Perempuan</h3>
+          <p>Putri dari Bapak - & Ibu -</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Section -->
+    <section id="event" style="background-color: #f3ebd5">
+      <h2 class="section-title">Waktu & Tempat</h2>
+      <p class="sub-title">Detail Pelaksanaan Acara</p>
+
+      <div class="event-grid">
+        <div class="event-card">
+          <div class="event-icon"><i class="fa-solid fa-ring"></i></div>
+          <h3>Akad Nikah</h3>
+          <p>
+            <strong><i class="fa-regular fa-clock"></i></strong> 09:00 WIB -
+            Selesai
+          </p>
+          <p>
+            <strong><i class="fa-solid fa-location-dot"></i></strong> Masjid
+            Raya Agung
+          </p>
+          <p style="color: #5c6c62">Jl. Merdeka No. 123, Jakarta</p>
+        </div>
+
+        <div class="event-card">
+          <div class="event-icon">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <h3>Resepsi</h3>
+          <p>
+            <strong><i class="fa-regular fa-clock"></i></strong> 11:00 - 15:00
+            WIB
+          </p>
+          <p>
+            <strong><i class="fa-solid fa-location-dot"></i></strong> Gedung
+            Serbaguna Indah
+          </p>
+          <p style="color: #5c6c62">Jl. Merdeka No. 125, Jakarta</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map/Location Section -->
+    <section id="location">
+      <h2 class="section-title">Lokasi Acara</h2>
+      <p class="sub-title">Petunjuk Arah Menuju Lokasi Pernikahan</p>
+
+      <div class="map-card">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466144368!2d106.82496417585802!3d-6.175392393811818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2db242733%3A0x48e42f9e4e68e4c!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+            width="100%"
+            height="380"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+        <div class="map-details">
+          <p><strong>Gedung Serbaguna Indah</strong></p>
+          <p>Jl. Merdeka No. 125, Jakarta Pusat</p>
+          <a
+            href="https://maps.app.goo.gl/uX3f59oE66bSDoF4A"
+            target="_blank"
+            class="btn-maps"
+          >
+            <i class="fa-solid fa-map-location-dot"></i> Buka Rute di Google
+            Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" style="background-color: #f3ebd5">
+      <h2 class="section-title">Konfirmasi Kehadiran</h2>
+      <p class="sub-title">Silakan isi formulir di bawah ini</p>
+
+      <form class="rsvp-form" id="rsvpForm">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input
+            type="text"
+            id="name"
+            required
+            placeholder="Tulis nama lengkap Anda"
+          />
+        </div>
+        <div class="form-group">
+          <label for="guests">Jumlah Tamu</label>
+          <select id="guests">
+            <option value="1">1 Orang</option>
+            <option value="2">2 Orang</option>
+            <option value="3">3 Orang</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="attendance">Kehadiran</label>
+          <select id="attendance">
+            <option value="yes">Hadir</option>
+            <option value="no">Tidak Hadir</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Konfirmasi</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Nama 1 & Nama 2</p>
+      <p>&copy; 2026 KedaiKoding. All Rights Reserved.</p>
+      <p style="font-size: 0.8rem; color: #8c764e">
+        Made with ♥ by KedaiKoding
+      </p>
+    </footer>
+
+    <script>
+      // --- COUNTDOWN TIMER ---
+      const weddingDate = new Date("Dec 12, 2026 09:00:00").getTime();
+
+      const timer = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML =
+          days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML =
+          hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML =
+          minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML =
+          seconds < 10 ? "0" + seconds : seconds;
+
+        if (distance < 0) {
+          clearInterval(timer);
+          document.getElementById("days").innerHTML = "00";
+          document.getElementById("hours").innerHTML = "00";
+          document.getElementById("minutes").innerHTML = "00";
+          document.getElementById("seconds").innerHTML = "00";
+        }
+      }, 1000);
+
+      // --- MUSIC CONTROLLER ---
+      const audio = document.getElementById("bgMusic");
+      const musicIcon = document.getElementById("musicIcon");
+
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play();
+          musicIcon.className = "fa-solid fa-compact-disc fa-spin";
+        } else {
+          audio.pause();
+          musicIcon.className = "fa-solid fa-music";
+        }
+      }
+
+      // --- RSVP FORM SUBMISSION ---
+      document
+        .getElementById("rsvpForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Terima kasih! Konfirmasi kehadiran Anda telah tersimpan.");
+        });
+    </script>
+  </body>
+</html>
