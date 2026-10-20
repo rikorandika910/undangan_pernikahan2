@@ -26,6 +26,7 @@
         --pure-white: #ffffff;
         --text-dark: #0f172a;
         --text-subtle: #475569;
+        --gold-accent: #d4af37;
         --grad-sky-sweet: linear-gradient(135deg, #a8cdfc 0%, #d8e8fc 50%, #ffffff 100%);
         --grad-navy-glow: linear-gradient(145deg, #0a1931 0%, #17386d 100%);
       }
@@ -70,7 +71,7 @@
         border: 1px solid rgba(168, 205, 252, 0.35);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: 200px 200px 32px 32px; /* Arch Shape */
+        border-radius: 200px 200px 32px 32px;
         width: 100%;
         max-width: 440px;
         padding: 60px 30px 45px;
@@ -259,6 +260,45 @@
       }
 
       /* ========================================================
+         AKSESORIS DAUN & RANTING BIRU/EMAS (BOTANICAL VINES)
+         ======================================================== */
+      .sky-foliage {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.7;
+        transition: transform 0.6s ease;
+      }
+      .foliage-tl {
+        top: 25px;
+        left: -10px;
+        width: 125px;
+      }
+      .foliage-br {
+        bottom: 25px;
+        right: -10px;
+        width: 125px;
+        transform: rotate(180deg);
+      }
+      .card-foliage-corner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 85px;
+        pointer-events: none;
+        opacity: 0.65;
+      }
+      .card-foliage-corner-br {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 85px;
+        pointer-events: none;
+        opacity: 0.65;
+        transform: rotate(180deg);
+      }
+
+      /* ========================================================
          ANIMASI KONTEMPORER (SMOOTH SLIDE & EXPAND)
          ======================================================== */
       .slide-entry {
@@ -282,6 +322,7 @@
         padding: 100px 20px;
         max-width: 1050px;
         margin: 0 auto;
+        position: relative;
       }
       .section-tag {
         font-size: 0.75rem;
@@ -309,6 +350,8 @@
         grid-template-columns: 1fr;
         gap: 30px;
         align-items: center;
+        position: relative;
+        z-index: 2;
       }
       @media (min-width: 768px) {
         .couple-split {
@@ -318,29 +361,38 @@
       .arch-profile-card {
         background: #ffffff;
         border-radius: 180px 180px 24px 24px;
-        padding: 55px 30px 40px;
+        padding: 50px 30px 40px;
         text-align: center;
         box-shadow: 0 15px 45px rgba(91, 146, 229, 0.12);
         border: 1px solid var(--powder-blue);
         transition: transform 0.4s ease;
+        position: relative;
+        overflow: hidden;
       }
       .arch-profile-card:hover {
         transform: translateY(-8px);
       }
-      .arch-avatar {
-        width: 130px;
-        height: 130px;
+
+      /* Foto Profil Pengantin Asli (Bulat Cantik & Rapi) */
+      .profile-photo-circle {
+        width: 155px;
+        height: 155px;
         border-radius: 50%;
         margin: 0 auto 25px;
-        background: var(--powder-blue);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        color: var(--night-sky);
-        border: 3px solid #ffffff;
-        box-shadow: 0 8px 20px rgba(91, 146, 229, 0.2);
+        padding: 5px;
+        background: linear-gradient(135deg, var(--sky-blue), var(--gold-accent));
+        box-shadow: 0 10px 25px rgba(91, 146, 229, 0.3);
+        position: relative;
       }
+      .profile-photo-circle img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        border: 3px solid #ffffff;
+      }
+
       .arch-profile-card h3 {
         font-family: "Cormorant Infant", serif;
         font-size: 2.8rem;
@@ -374,6 +426,7 @@
       .gallery-shell {
         position: relative;
         padding: 0 15px;
+        z-index: 2;
       }
       .gallery-rail {
         overflow-x: auto;
@@ -440,6 +493,8 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 30px;
+        position: relative;
+        z-index: 2;
       }
       @media (min-width: 768px) {
         .event-cards-grid {
@@ -497,6 +552,8 @@
         border: 1px solid var(--powder-blue);
         box-shadow: 0 15px 40px rgba(91, 146, 229, 0.08);
         text-align: center;
+        position: relative;
+        z-index: 2;
       }
       .map-frame {
         border-radius: 20px;
@@ -514,6 +571,8 @@
         max-width: 580px;
         margin: 0 auto;
         text-align: left;
+        position: relative;
+        z-index: 2;
       }
       .input-field-group {
         margin-bottom: 22px;
@@ -589,6 +648,21 @@
     </style>
   </head>
   <body>
+    <!-- Template SVG Daun & Akar Sky / Botanical Vines Re-usable -->
+    <svg style="display: none">
+      <defs>
+        <g id="sky-leaf-corner">
+          <path d="M5,100 C15,70 35,40 85,25 C75,40 65,55 60,75 C55,95 40,98 5,100 Z" fill="#5B92E5" opacity="0.85"/>
+          <path d="M20,95 C45,65 80,45 130,30 C110,48 95,68 85,90 Z" fill="#A8CDFC" opacity="0.6"/>
+          <path d="M8,100 Q40,50 110,20 Q80,75 55,95 Z" fill="#15305B" opacity="0.75"/>
+          <path d="M2,102 Q55,75 145,28" stroke="#D4AF37" stroke-width="2.5" fill="none" opacity="0.8"/>
+          <circle cx="145" cy="28" r="4" fill="#D4AF37"/>
+          <circle cx="110" cy="20" r="3" fill="#A8CDFC"/>
+          <circle cx="85" cy="25" r="3.5" fill="#5B92E5"/>
+        </g>
+      </defs>
+    </svg>
+
     <!-- ========================================================
          HALAMAN GERBANG DENGAN PERSONALISASI NAMA TAMU
          ======================================================== -->
@@ -673,37 +747,55 @@
     </header>
 
     <!-- ========================================================
-         MEMPELAI: DUAL ARCH SPLIT
+         MEMPELAI: DUAL ARCH DENGAN FOTO ASLI & DAUN BOTANI
          ======================================================== -->
     <section id="couple" class="slide-entry">
+      <!-- Ornamen Daun Sudut Section -->
+      <svg class="sky-foliage foliage-tl" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+      <svg class="sky-foliage foliage-br" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+
       <span class="section-tag">Pasangan Bahagia</span>
       <h2 class="section-heading">Sang Mempelai</h2>
 
       <div class="couple-split">
+        <!-- Pengantin Pria: Riko Randika (FOTO PROFIL ASLI) -->
         <div class="arch-profile-card">
-          <div class="arch-avatar"><i class="fa-solid fa-feather-pointed"></i></div>
+          <svg class="card-foliage-corner" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+          <div class="profile-photo-circle">
+            <img src="fotoriko.jpg" alt="Riko Randika" onerror="this.src='pengantin.jpg'" />
+          </div>
           <h3>Riko Randika S.Kom</h3>
           <p style="margin-bottom: 6px">Putra Tercinta dari Pasangan:</p>
           <p><strong style="color: var(--deep-navy)">Bapak Aji & Ibu Tik</strong></p>
+          <svg class="card-foliage-corner-br" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
         </div>
 
         <div class="ampersand-circle">&</div>
 
+        <!-- Pengantin Wanita: Syeirach Aulia (FOTO PROFIL ASLI) -->
         <div class="arch-profile-card">
-          <div class="arch-avatar"><i class="fa-solid fa-gem"></i></div>
+          <svg class="card-foliage-corner" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+          <div class="profile-photo-circle">
+            <img src="fotorara.jpg" alt="Syeirach Aulia" onerror="this.src='pengantin.jpg'" />
+          </div>
           <h3>Syeirach Aulia S.Kom</h3>
           <p style="margin-bottom: 6px">Putri Tercinta dari Pasangan:</p>
           <p><strong style="color: var(--deep-navy)">Bapak Eri & Ibu Ita</strong></p>
+          <svg class="card-foliage-corner-br" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
         </div>
       </div>
     </section>
 
     <!-- ========================================================
-         GALERI ARCH (HORIZONTAL FLOW + DRAG + ARROWS)
+         GALERI ARCH (HORIZONTAL FLOW + DRAG + ARROWS + ORNAMEN)
          ======================================================== -->
     <section id="gallery" style="max-width: 1200px" class="slide-entry">
-      <span class="section-tag">Abadikan Kenangan</span>
-      <h2 class="section-heading">Galeri Momen</h2>
+      <div style="position: relative;">
+        <svg class="sky-foliage foliage-tl" style="top: -20px" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+        <span class="section-tag">Abadikan Kenangan</span>
+        <h2 class="section-heading">Galeri Momen</h2>
+        <svg class="sky-foliage foliage-br" style="bottom: 0px" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+      </div>
 
       <div class="gallery-shell">
         <button class="rail-arrow prev" onclick="moveGallery(-280)">
@@ -734,15 +826,19 @@
     </section>
 
     <!-- ========================================================
-         WAKTU & TEMPAT: TIMELINE CARDS
+         WAKTU & TEMPAT: TIMELINE CARDS + ORNAMEN
          ======================================================== -->
     <section id="event" class="slide-entry">
+      <svg class="sky-foliage foliage-tl" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+      <svg class="sky-foliage foliage-br" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+
       <span class="section-tag">Save The Date</span>
       <h2 class="section-heading">Agenda Bahagia</h2>
 
       <div class="event-cards-grid">
-        <!-- Akad Nikah: Tetap di Masjid Al Fatih -->
+        <!-- Akad Nikah -->
         <div class="timeline-card">
+          <svg class="card-foliage-corner" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
           <span class="timeline-badge">Akad Nikah</span>
           <h3>Janji Suci</h3>
           <p><strong><i class="fa-regular fa-clock"></i> Pukul:</strong> 08:00 WIB - Selesai</p>
@@ -750,8 +846,9 @@
           <p style="font-size: 0.85rem">Jl. Lintas Medan - Banda Aceh No.495, Tunggurono, Binjai Timur</p>
         </div>
 
-        <!-- Resepsi: Gedung Serba Guna Pemprovsu -->
+        <!-- Resepsi -->
         <div class="timeline-card">
+          <svg class="card-foliage-corner" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
           <span class="timeline-badge">Resepsi Pernikahan</span>
           <h3>Perayaan Cinta</h3>
           <p><strong><i class="fa-regular fa-clock"></i> Pukul:</strong> 11:00 - 14:00 WIB</p>
@@ -762,13 +859,17 @@
     </section>
 
     <!-- ========================================================
-         PETA GOOGLE MAPS: LOKASI RESEPSI PEMPROVSU
+         PETA GOOGLE MAPS + ORNAMEN
          ======================================================== -->
     <section id="location" class="slide-entry">
+      <svg class="sky-foliage foliage-tl" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+
       <span class="section-tag">Petunjuk Lokasi</span>
       <h2 class="section-heading">Peta Digital</h2>
 
       <div class="map-shell">
+        <svg class="card-foliage-corner" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+
         <div class="map-frame">
           <iframe
             src="https://maps.google.com/maps?q=Gedung%20Serba%20Guna%20Pemprovsu%2C%20Jl.%20Williem%20Iskandar%20No.9%2C%20Kenangan%20Baru%2C%20Kec.%20Percut%20Sei%20Tuan%2C%20Kabupaten%20Deli%20Serdang%2C%20Sumatera%20Utara%2020371&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -799,13 +900,17 @@
     </section>
 
     <!-- ========================================================
-         RSVP SECTION
+         RSVP SECTION + ORNAMEN
          ======================================================== -->
     <section id="rsvp" class="slide-entry">
+      <svg class="sky-foliage foliage-tl" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+      <svg class="sky-foliage foliage-br" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
+
       <span class="section-tag">Buku Tamu</span>
       <h2 class="section-heading">Konfirmasi Kehadiran</h2>
 
       <div class="rsvp-card-box">
+        <svg class="card-foliage-corner" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
         <form id="formRsvp">
           <div class="input-field-group">
             <label for="rsvpName">Nama Anda</label>
@@ -830,6 +935,7 @@
             Kirim Konfirmasi
           </button>
         </form>
+        <svg class="card-foliage-corner-br" viewBox="0 0 150 110"><use href="#sky-leaf-corner"/></svg>
       </div>
     </section>
 
@@ -842,9 +948,7 @@
       <p style="font-size: 0.8rem; color: #94a3b8">Made with ♥ by KedaiKoding</p>
     </footer>
 
-    <!-- ========================================================
-         JAVASCRIPT LOGIC
-         ======================================================== -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
       // 1. Logika Input Nama Tamu Khusus
       let guestName = "";
@@ -853,18 +957,13 @@
         const inputVal = document.getElementById("guestInputName").value.trim();
         guestName = inputVal ? inputVal : "Tamu Terhormat";
 
-        // Tampilkan nama di layar pembuka
         document.getElementById("guestNameTarget").innerText = guestName;
-
-        // Otomatis isi ke form RSVP di bawah
         document.getElementById("rsvpName").value = guestName;
 
-        // Ganti tampilan ke Step 2
         document.getElementById("stepInput").style.display = "none";
         document.getElementById("stepOpen").style.display = "block";
       }
 
-      // Enter key support untuk input nama
       document.getElementById("guestInputName").addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
           processGuestName();
