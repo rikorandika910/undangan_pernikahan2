@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Wedding Celebration - Riko & Rara</title>
+    <title>The Wedding Celebration - Riko & Syeirach</title>
 
-    <!-- Google Fonts Baru & FontAwesome -->
+    <!-- Google Fonts & FontAwesome -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800&family=Monsieur+La+Doulaise&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Infant:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -17,20 +17,19 @@
 
     <style>
       :root {
-        --deep-navy: #08152e;
-        --night-sky: #132a52;
-        --royal-blue: #244b8a;
-        --sky-blue: #6499e9;
-        --soft-sky: #a6c9fb;
-        --ice-mist: #f4f8fe;
-        --powder-blue: #d8e6fa;
+        --deep-navy: #061329;
+        --night-sky: #0d2347;
+        --royal-blue: #1b4382;
+        --vivid-sky: #3d84e8;
+        --sky-blue: #60a5fa;
+        --soft-sky: #93c5fd;
+        --ice-mist: #eff6ff;
         --pure-white: #ffffff;
-        --gold-celestial: #dfba73;
-        --gold-bright: #fce8a6;
-        --text-dark: #0c182c;
-        --text-subtle: #4a5c78;
-        --grad-sky-sweet: linear-gradient(135deg, #a6c9fb 0%, #e2edfd 50%, #ffffff 100%);
-        --grad-navy-glow: linear-gradient(145deg, #08152e 0%, #17386d 100%);
+        --text-dark: #07152d;
+        --text-subtle: #3b5070;
+        --grad-blue-vivid: linear-gradient(135deg, #1b4382 0%, #3d84e8 50%, #93c5fd 100%);
+        --grad-sky-glow: linear-gradient(135deg, #60a5fa 0%, #bfdbfe 100%);
+        --grad-card-bg: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
       }
 
       * {
@@ -41,62 +40,92 @@
 
       body {
         font-family: "Syne", sans-serif;
-        background-color: var(--ice-mist);
+        background: linear-gradient(180deg, #f0f7ff 0%, #e2eefd 50%, #dbeafe 100%);
         color: var(--text-dark);
         line-height: 1.7;
         overflow-x: hidden;
         position: relative;
       }
 
-      /* Latar Belakang Bintang Berkelap-Kelip (Celestial Starry Night) */
+      /* Latar Belakang Taburan Kelopak Bunga Biru Transparan */
       body::before {
         content: "";
         position: fixed;
         inset: 0;
         background-image: 
-          radial-gradient(1.5px 1.5px at 20px 30px, #a6c9fb, rgba(0,0,0,0)),
-          radial-gradient(1.5px 1.5px at 100px 150px, #dfba73, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 240px 90px, #6499e9, rgba(0,0,0,0)),
-          radial-gradient(1.5px 1.5px at 320px 280px, #ffffff, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 450px 210px, #dfba73, rgba(0,0,0,0));
-        background-repeat: repeat;
-        background-size: 500px 500px;
-        opacity: 0.55;
+          radial-gradient(circle at 10% 20%, rgba(96, 165, 250, 0.12) 0%, transparent 35%),
+          radial-gradient(circle at 90% 80%, rgba(61, 132, 232, 0.14) 0%, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(147, 197, 253, 0.08) 0%, transparent 60%);
         pointer-events: none;
         z-index: 0;
       }
 
       /* ========================================================
-         AKSESORIS SPESIAL: VINTAGE ROYAL FILIGREE & STARBURST
+         AKSESORIS BUNGA, DAUN & AKAR BIRU (WEDDING FLORAL VINES)
          ======================================================== */
-      .filigree-corner {
+      .floral-branch {
         position: absolute;
-        width: 80px;
-        height: 80px;
         pointer-events: none;
-        z-index: 3;
+        z-index: 4;
+        filter: drop-shadow(0 6px 12px rgba(13, 35, 71, 0.15));
+        transition: transform 0.6s ease;
+      }
+
+      /* Ornamen Sudut Kartu */
+      .flower-corner-tl {
+        top: -6px;
+        left: -6px;
+        width: 110px;
+      }
+      .flower-corner-tr {
+        top: -6px;
+        right: -6px;
+        width: 110px;
+        transform: scaleX(-1);
+      }
+      .flower-corner-br {
+        bottom: -6px;
+        right: -6px;
+        width: 110px;
+        transform: scale(-1);
+      }
+      .flower-corner-bl {
+        bottom: -6px;
+        left: -6px;
+        width: 110px;
+        transform: scaleY(-1);
+      }
+
+      /* Ornamen Raksasa Samping Slide Halaman */
+      .slide-vine-left {
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        width: 160px;
         opacity: 0.85;
       }
-      .filigree-tl { top: 8px; left: 8px; }
-      .filigree-tr { top: 8px; right: 8px; transform: scaleX(-1); }
-      .filigree-bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
-      .filigree-br { bottom: 8px; right: 8px; transform: scale(-1); }
+      .slide-vine-right {
+        position: absolute;
+        bottom: 20px;
+        right: -20px;
+        width: 160px;
+        transform: scale(-1);
+        opacity: 0.85;
+      }
 
-      .divider-ornament {
+      /* Pembatas Bunga Cantik di Bawah Judul */
+      .floral-divider {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
-        margin: 15px auto 40px;
-        color: var(--gold-celestial);
-        font-size: 1.1rem;
+        margin: 10px auto 45px;
+        color: var(--sky-blue);
+        font-size: 1.2rem;
       }
-      .divider-ornament::before,
-      .divider-ornament::after {
-        content: "";
-        width: 70px;
-        height: 1.5px;
-        background: linear-gradient(90deg, transparent, var(--gold-celestial), transparent);
+      .floral-divider svg {
+        width: 140px;
+        height: 24px;
       }
 
       /* ========================================================
@@ -105,7 +134,7 @@
       .envelope-screen {
         position: fixed;
         inset: 0;
-        background: radial-gradient(circle at 50% 20%, #16366b 0%, var(--deep-navy) 100%);
+        background: radial-gradient(circle at 50% 20%, #17386d 0%, var(--deep-navy) 100%);
         z-index: 99999;
         display: flex;
         justify-content: center;
@@ -120,37 +149,38 @@
       }
 
       .guest-input-card {
-        background: rgba(255, 255, 255, 0.08);
-        border: 2px solid rgba(223, 186, 115, 0.45);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 200px 200px 32px 32px;
+        background: rgba(13, 35, 71, 0.75);
+        border: 2px solid rgba(147, 197, 253, 0.5);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 200px 200px 36px 36px;
         width: 100%;
-        max-width: 440px;
-        padding: 60px 30px 45px;
+        max-width: 450px;
+        padding: 65px 30px 45px;
         text-align: center;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(223, 186, 115, 0.15);
+        box-shadow: 0 25px 60px rgba(6, 19, 41, 0.7), inset 0 0 40px rgba(96, 165, 250, 0.2);
         color: #ffffff;
         position: relative;
+        overflow: hidden;
       }
 
       .guest-badge {
-        font-size: 0.72rem;
+        font-size: 0.75rem;
         letter-spacing: 5px;
         text-transform: uppercase;
-        color: var(--gold-celestial);
+        color: var(--soft-sky);
         display: block;
         margin-bottom: 8px;
         font-weight: 700;
       }
       .guest-title {
-        font-family: "Cormorant Infant", serif;
-        font-size: 3.4rem;
+        font-family: "Alex Brush", cursive;
+        font-size: 4.8rem;
         font-weight: 400;
         line-height: 1;
         margin-bottom: 25px;
         color: #ffffff;
-        text-shadow: 0 4px 15px rgba(100, 153, 233, 0.5);
+        text-shadow: 0 4px 20px rgba(96, 165, 250, 0.6);
       }
 
       .input-wrapper {
@@ -159,8 +189,8 @@
       .input-wrapper input {
         width: 100%;
         padding: 16px 20px;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1.5px solid var(--soft-sky);
+        background: rgba(255, 255, 255, 0.12);
+        border: 2px solid var(--soft-sky);
         border-radius: 50px;
         color: #ffffff;
         font-size: 1rem;
@@ -170,20 +200,20 @@
         transition: all 0.3s;
       }
       .input-wrapper input::placeholder {
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(219, 234, 254, 0.6);
       }
       .input-wrapper input:focus {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: var(--gold-celestial);
-        box-shadow: 0 0 25px rgba(223, 186, 115, 0.6);
+        background: rgba(255, 255, 255, 0.22);
+        border-color: #ffffff;
+        box-shadow: 0 0 25px rgba(96, 165, 250, 0.7);
       }
 
       .btn-blue {
         width: 100%;
-        background: linear-gradient(135deg, var(--gold-celestial), #ffffff);
-        color: var(--deep-navy);
-        border: none;
-        padding: 15px 30px;
+        background: var(--grad-blue-vivid);
+        color: #ffffff;
+        border: 1.5px solid rgba(255, 255, 255, 0.6);
+        padding: 16px 30px;
         font-size: 0.95rem;
         font-weight: 700;
         border-radius: 50px;
@@ -192,13 +222,15 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        letter-spacing: 1px;
-        box-shadow: 0 8px 25px rgba(223, 186, 115, 0.35);
-        transition: all 0.3s;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        transition: all 0.35s;
       }
       .btn-blue:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(223, 186, 115, 0.6);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.6);
+        border-color: #ffffff;
       }
 
       .guest-display-step {
@@ -214,25 +246,26 @@
       }
       .guest-name-output {
         font-family: "Cormorant Infant", serif;
-        font-size: 2.3rem;
+        font-size: 2.5rem;
         font-weight: 700;
         color: #ffffff;
         margin-bottom: 12px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.4);
       }
       .guest-invitation-text {
         font-size: 0.9rem;
-        color: #dceafc;
+        color: #dbeafe;
         margin-bottom: 25px;
       }
 
       /* ========================================================
-         HERO SECTION: EDITORIAL SKY ARCH DENGAN STARBURST
+         HERO SECTION: EDITORIAL SKY ARCH DENGAN BINGKAI MAHKOTA BUNGA
          ======================================================== */
       .hero-editorial {
         position: relative;
         min-height: 100vh;
-        background: linear-gradient(180deg, var(--deep-navy) 0%, var(--night-sky) 55%, var(--ice-mist) 100%);
-        padding: 50px 20px 80px;
+        background: linear-gradient(180deg, var(--deep-navy) 0%, var(--night-sky) 55%, #e2eefd 100%);
+        padding: 50px 20px 90px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -242,11 +275,11 @@
         z-index: 1;
       }
       .hero-arch-photo {
-        width: 250px;
-        height: 340px;
-        border-radius: 140px 140px 20px 20px;
-        border: 4px solid var(--gold-celestial);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 35px rgba(223, 186, 115, 0.3);
+        width: 260px;
+        height: 350px;
+        border-radius: 150px 150px 24px 24px;
+        border: 4px solid #ffffff;
+        box-shadow: 0 20px 50px rgba(6, 19, 41, 0.6), 0 0 35px rgba(96, 165, 250, 0.4);
         overflow: hidden;
         margin-bottom: 25px;
         position: relative;
@@ -257,58 +290,59 @@
         object-fit: cover;
       }
       .hero-subtitle {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         letter-spacing: 6px;
         text-transform: uppercase;
-        color: var(--gold-celestial);
+        color: var(--soft-sky);
         font-weight: 700;
         margin-bottom: 5px;
       }
       .hero-title {
-        font-family: "Cormorant Infant", serif;
-        font-size: 5.6rem;
+        font-family: "Alex Brush", cursive;
+        font-size: 6.2rem;
         font-weight: 400;
         line-height: 0.9;
         color: #ffffff;
         margin-bottom: 15px;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        text-shadow: 0 4px 25px rgba(37, 99, 235, 0.6);
       }
       .hero-date-badge {
         display: inline-block;
-        padding: 7px 24px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid var(--gold-celestial);
+        padding: 7px 26px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1.5px solid var(--soft-sky);
         border-radius: 40px;
         font-size: 0.85rem;
         letter-spacing: 3px;
         color: #ffffff;
+        backdrop-filter: blur(10px);
       }
 
-      /* Countdown Modern Mini-Pill */
+      /* Countdown Modern Blue Capsule */
       .countdown-wrapper {
         display: flex;
         gap: 12px;
         margin-top: 35px;
       }
       .cd-pill {
-        background: rgba(8, 21, 46, 0.85);
-        border: 1px solid var(--gold-celestial);
-        backdrop-filter: blur(8px);
+        background: rgba(6, 19, 41, 0.85);
+        border: 1.5px solid var(--sky-blue);
+        backdrop-filter: blur(10px);
         padding: 10px 18px;
-        border-radius: 16px;
-        min-width: 68px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 18px;
+        min-width: 72px;
+        box-shadow: 0 8px 25px rgba(6, 19, 41, 0.35);
       }
       .cd-pill span {
         font-family: "Cormorant Infant", serif;
-        font-size: 1.9rem;
+        font-size: 2.1rem;
         font-weight: 700;
-        color: var(--gold-bright);
+        color: #ffffff;
         display: block;
         line-height: 1;
       }
       .cd-pill label {
-        font-size: 0.65rem;
+        font-size: 0.68rem;
         letter-spacing: 1.5px;
         text-transform: uppercase;
         color: var(--soft-sky);
@@ -344,26 +378,26 @@
         position: relative;
       }
       .section-tag {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         letter-spacing: 5px;
         text-transform: uppercase;
-        color: var(--royal-blue);
+        color: var(--vivid-sky);
         font-weight: 700;
         display: block;
         margin-bottom: 6px;
         text-align: center;
       }
       .section-heading {
-        font-family: "Cormorant Infant", serif;
-        font-size: 4.2rem;
+        font-family: "Alex Brush", cursive;
+        font-size: 5rem;
         color: var(--deep-navy);
         text-align: center;
         line-height: 1;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         font-weight: 400;
       }
 
-      /* Pasangan Pengantin dengan Foto Asli & Halo Emas */
+      /* Pasangan Pengantin dengan Foto Asli & Karangan Bunga */
       .couple-split {
         display: grid;
         grid-template-columns: 1fr;
@@ -378,40 +412,32 @@
         }
       }
       .arch-profile-card {
-        background: #ffffff;
-        border-radius: 180px 180px 28px 28px;
+        background: var(--grad-card-bg);
+        border-radius: 180px 180px 32px 32px;
         padding: 55px 30px 42px;
         text-align: center;
-        box-shadow: 0 15px 45px rgba(36, 75, 138, 0.12);
-        border: 1.5px solid var(--powder-blue);
-        transition: transform 0.4s ease;
+        box-shadow: 0 18px 45px rgba(27, 67, 130, 0.14);
+        border: 2px solid rgba(147, 197, 253, 0.5);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
         position: relative;
         overflow: hidden;
       }
       .arch-profile-card:hover {
         transform: translateY(-8px);
-        border-color: var(--gold-celestial);
+        box-shadow: 0 24px 55px rgba(37, 99, 235, 0.22);
+        border-color: var(--sky-blue);
       }
 
-      /* Halo Berlian & Bintang untuk Foto Pengantin */
+      /* Foto Pengantin dengan Karangan Bunga Lingkaran */
       .profile-photo-circle {
-        width: 160px;
-        height: 160px;
+        width: 165px;
+        height: 165px;
         border-radius: 50%;
         margin: 0 auto 25px;
         padding: 6px;
-        background: linear-gradient(135deg, var(--gold-celestial), var(--sky-blue));
-        box-shadow: 0 10px 30px rgba(100, 153, 233, 0.35);
+        background: var(--grad-blue-vivid);
+        box-shadow: 0 12px 30px rgba(61, 132, 232, 0.35);
         position: relative;
-      }
-      .profile-photo-circle::after {
-        content: "✦";
-        position: absolute;
-        top: -6px;
-        right: 4px;
-        color: var(--gold-celestial);
-        font-size: 1.3rem;
-        text-shadow: 0 0 8px rgba(223, 186, 115, 0.8);
       }
       .profile-photo-circle img {
         width: 100%;
@@ -419,13 +445,13 @@
         border-radius: 50%;
         object-fit: cover;
         display: block;
-        border: 3px solid #ffffff;
+        border: 3.5px solid #ffffff;
       }
 
       .arch-profile-card h3 {
         font-family: "Cormorant Infant", serif;
         font-size: 2.8rem;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--deep-navy);
         margin-bottom: 8px;
         line-height: 1;
@@ -435,23 +461,23 @@
         color: var(--text-subtle);
       }
       .ampersand-circle {
-        width: 65px;
-        height: 65px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         background: var(--deep-navy);
-        color: var(--gold-celestial);
-        border: 2px solid var(--gold-celestial);
+        color: #ffffff;
+        border: 2px solid var(--sky-blue);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Monsieur La Doulaise", cursive;
+        font-family: "Alex Brush", cursive;
         font-size: 3.2rem;
         margin: 0 auto;
-        box-shadow: 0 8px 25px rgba(8, 21, 46, 0.35);
+        box-shadow: 0 10px 30px rgba(6, 19, 41, 0.35);
       }
 
       /* ========================================================
-         GALERI DENGAN BINGKAI EMAS DAN TOMBOL PANAH
+         GALERI DENGAN HIASAN DAUN RAMBAT DAN ARROW
          ======================================================== */
       .gallery-shell {
         position: relative;
@@ -475,10 +501,10 @@
       .gallery-card {
         flex: 0 0 260px;
         height: 380px;
-        border-radius: 130px 130px 20px 20px;
+        border-radius: 130px 130px 24px 24px;
         overflow: hidden;
-        border: 2px solid var(--gold-celestial);
-        box-shadow: 0 15px 35px rgba(8, 21, 46, 0.15);
+        border: 3px solid #ffffff;
+        box-shadow: 0 15px 35px rgba(27, 67, 130, 0.16);
         transition: transform 0.4s ease;
       }
       .gallery-card:hover {
@@ -498,27 +524,26 @@
         height: 50px;
         border-radius: 50%;
         background: var(--deep-navy);
-        color: var(--gold-celestial);
-        border: 1.5px solid var(--gold-celestial);
+        color: #ffffff;
+        border: 2px solid var(--sky-blue);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1.1rem;
         z-index: 10;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 25px rgba(6, 19, 41, 0.35);
         transition: all 0.3s;
       }
       .rail-arrow:hover {
-        background: var(--sky-blue);
-        color: #ffffff;
+        background: var(--vivid-sky);
         transform: translateY(-50%) scale(1.1);
       }
       .rail-arrow.prev { left: 10px; }
       .rail-arrow.next { right: 10px; }
 
       /* ========================================================
-         WAKTU & TEMPAT: TIMELINE ELEGANT
+         WAKTU & TEMPAT: TIMELINE CARDS
          ======================================================== */
       .event-cards-grid {
         display: grid;
@@ -533,11 +558,11 @@
         }
       }
       .timeline-card {
-        background: #ffffff;
-        border-radius: 28px;
-        padding: 45px 35px;
-        border: 1.5px solid var(--powder-blue);
-        box-shadow: 0 15px 40px rgba(36, 75, 138, 0.08);
+        background: var(--grad-card-bg);
+        border-radius: 30px;
+        padding: 48px 35px;
+        border: 2px solid rgba(147, 197, 253, 0.5);
+        box-shadow: 0 16px 45px rgba(27, 67, 130, 0.1);
         text-align: left;
         position: relative;
         overflow: hidden;
@@ -549,14 +574,14 @@
         left: 0;
         width: 6px;
         height: 100%;
-        background: linear-gradient(180deg, var(--gold-celestial), var(--royal-blue));
+        background: var(--grad-blue-vivid);
       }
       .timeline-badge {
         display: inline-block;
-        padding: 5px 16px;
+        padding: 5px 18px;
         border-radius: 30px;
-        background: var(--powder-blue);
-        color: var(--night-sky);
+        background: var(--vivid-sky);
+        color: #ffffff;
         font-size: 0.75rem;
         font-weight: 700;
         letter-spacing: 1.5px;
@@ -565,7 +590,8 @@
       }
       .timeline-card h3 {
         font-family: "Cormorant Infant", serif;
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+        font-weight: 700;
         color: var(--deep-navy);
         margin-bottom: 15px;
       }
@@ -577,33 +603,36 @@
 
       /* MAP SECTION */
       .map-shell {
-        background: #ffffff;
-        border-radius: 30px;
-        padding: 30px;
-        border: 1.5px solid var(--powder-blue);
-        box-shadow: 0 15px 40px rgba(36, 75, 138, 0.08);
+        background: var(--grad-card-bg);
+        border-radius: 32px;
+        padding: 32px;
+        border: 2px solid rgba(147, 197, 253, 0.5);
+        box-shadow: 0 16px 45px rgba(27, 67, 130, 0.1);
         text-align: center;
         position: relative;
         z-index: 2;
+        overflow: hidden;
       }
       .map-frame {
         border-radius: 20px;
         overflow: hidden;
         margin-bottom: 25px;
+        border: 2px solid #ffffff;
       }
 
       /* RSVP MODERN SLIM */
       .rsvp-card-box {
-        background: #ffffff;
+        background: var(--grad-card-bg);
         border-radius: 32px;
         padding: 50px 35px;
-        border: 1.5px solid var(--powder-blue);
-        box-shadow: 0 20px 50px rgba(36, 75, 138, 0.1);
+        border: 2px solid rgba(147, 197, 253, 0.5);
+        box-shadow: 0 20px 50px rgba(27, 67, 130, 0.12);
         max-width: 580px;
         margin: 0 auto;
         text-align: left;
         position: relative;
         z-index: 2;
+        overflow: hidden;
       }
       .input-field-group {
         margin-bottom: 22px;
@@ -622,15 +651,17 @@
         width: 100%;
         padding: 14px 18px;
         border-radius: 12px;
-        border: 1.5px solid #cbd5e1;
+        border: 1.5px solid #bfdbfe;
         font-family: inherit;
         font-size: 0.95rem;
         outline: none;
+        background: #ffffff;
         transition: border 0.3s;
       }
       .input-field-group input:focus,
       .input-field-group select:focus {
-        border-color: var(--gold-celestial);
+        border-color: var(--vivid-sky);
+        box-shadow: 0 0 15px rgba(61, 132, 232, 0.25);
       }
 
       /* Floating Audio Player */
@@ -645,14 +676,14 @@
         height: 54px;
         border-radius: 50%;
         background: var(--deep-navy);
-        color: var(--gold-celestial);
-        border: 2px solid var(--gold-celestial);
+        color: #ffffff;
+        border: 2px solid var(--sky-blue);
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1.25rem;
         cursor: pointer;
-        box-shadow: 0 10px 25px rgba(8, 21, 46, 0.4);
+        box-shadow: 0 10px 25px rgba(6, 19, 41, 0.4);
         transition: transform 0.3s;
       }
       .audio-pill-btn:hover {
@@ -665,11 +696,12 @@
         padding: 75px 20px;
         text-align: center;
         position: relative;
+        border-top: 3px solid var(--sky-blue);
       }
       footer h2 {
-        font-family: "Cormorant Infant", serif;
-        font-size: 4rem;
-        color: var(--gold-bright);
+        font-family: "Alex Brush", cursive;
+        font-size: 4.5rem;
+        color: var(--soft-sky);
         font-weight: 400;
       }
 
@@ -680,16 +712,44 @@
     </style>
   </head>
   <body>
-    <!-- Template SVG Aksesoris: Vintage Royal Filigree Lace & Stars (Bukan Daun Biasa) -->
+    <!-- Template SVG Aksesoris: Mawar Pengantin, Daun Rambat & Akar Biru (Botanical Floral Vines) -->
     <svg style="display: none">
       <defs>
-        <g id="royal-filigree">
-          <path d="M 5,5 L 5,35 Q 5,15 25,15 L 60,15 Q 30,15 25,5 Z" fill="#dfba73" opacity="0.65"/>
-          <path d="M 5,5 Q 40,8 65,30 Q 30,65 8,65 L 8,5 Z" fill="none" stroke="#6499e9" stroke-width="1.5" opacity="0.5"/>
-          <circle cx="28" cy="28" r="3.5" fill="#dfba73"/>
-          <circle cx="48" cy="18" r="2" fill="#dfba73"/>
-          <circle cx="18" cy="48" r="2" fill="#dfba73"/>
-          <path d="M 10,10 L 45,45 M 5,55 Q 30,40 55,5" stroke="#dfba73" stroke-width="1" fill="none"/>
+        <!-- Karangan Bunga Mawar & Ranting Daun Biru -->
+        <g id="blue-wedding-flowers">
+          <!-- Batang Akar Rambat Lengkung -->
+          <path d="M 0,0 Q 45,15 75,55 Q 90,85 110,120" fill="none" stroke="#60a5fa" stroke-width="2.5" opacity="0.85"/>
+          <path d="M 0,0 Q 20,40 45,70 Q 70,105 100,115" fill="none" stroke="#1b4382" stroke-width="1.8" opacity="0.6"/>
+
+          <!-- Daun-Daun Rambat Biru Segar -->
+          <path d="M 25,12 C 40,5 50,20 42,28 C 32,32 20,22 25,12 Z" fill="#93c5fd" opacity="0.9"/>
+          <path d="M 52,35 C 72,28 78,48 68,58 C 55,62 45,45 52,35 Z" fill="#3d84e8" opacity="0.85"/>
+          <path d="M 15,38 C 2,48 10,65 22,62 C 30,55 25,40 15,38 Z" fill="#60a5fa" opacity="0.85"/>
+          <path d="M 75,70 C 95,65 102,85 90,95 C 78,100 68,82 75,70 Z" fill="#93c5fd" opacity="0.9"/>
+          <path d="M 40,78 C 30,95 48,105 58,98 C 65,88 50,75 40,78 Z" fill="#1b4382" opacity="0.75"/>
+
+          <!-- Kelopak Bunga Mawar Biru Utama -->
+          <circle cx="38" cy="48" r="16" fill="#3d84e8" opacity="0.95"/>
+          <path d="M 38,36 C 45,36 50,42 48,50 C 42,48 40,42 38,36 Z" fill="#93c5fd"/>
+          <path d="M 30,44 C 28,52 35,58 42,56 C 40,50 34,48 30,44 Z" fill="#bfdbfe"/>
+          <circle cx="38" cy="48" r="6" fill="#ffffff" opacity="0.9"/>
+
+          <!-- Kuntum Bunga Kedua -->
+          <circle cx="76" cy="30" r="11" fill="#60a5fa" opacity="0.95"/>
+          <circle cx="76" cy="30" r="4.5" fill="#ffffff"/>
+
+          <!-- Taburan Kuncup Bunga Mungil & Biji Putik -->
+          <circle cx="10" cy="18" r="3.5" fill="#93c5fd"/>
+          <circle cx="95" cy="55" r="4" fill="#60a5fa"/>
+          <circle cx="90" cy="115" r="3.5" fill="#3d84e8"/>
+        </g>
+
+        <!-- Divider Bunga Horizontal -->
+        <g id="floral-divider-h">
+          <path d="M 5,12 Q 35,5 70,12 Q 105,19 135,12" stroke="#60a5fa" stroke-width="2" fill="none"/>
+          <circle cx="70" cy="12" r="5" fill="#3d84e8"/>
+          <path d="M 60,12 C 55,7 48,12 55,16 Z" fill="#93c5fd"/>
+          <path d="M 80,12 C 85,7 92,12 85,16 Z" fill="#93c5fd"/>
         </g>
       </defs>
     </svg>
@@ -699,16 +759,16 @@
          ======================================================== -->
     <div class="envelope-screen" id="gateScreen">
       <div class="guest-input-card">
-        <!-- Renda Filigree Sudut Gerbang -->
-        <svg class="filigree-corner filigree-tl" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
-        <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+        <!-- Hiasan Bunga Sudut Gerbang -->
+        <svg class="floral-branch flower-corner-tl" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+        <svg class="floral-branch flower-corner-tr" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
 
-        <span class="guest-badge">✦ The Wedding Invitation ✦</span>
+        <span class="guest-badge">Wedding Invitation</span>
         <h1 class="guest-title">Riko & Rara</h1>
 
         <!-- Tahap 1: Meminta Nama Tamu Terhormat -->
         <div id="stepInput">
-          <p style="font-size: 0.9rem; color: #dceafc">
+          <p style="font-size: 0.95rem; color: #dbeafe">
             Silakan masukkan nama Anda untuk membuka undangan:
           </p>
           <div class="input-wrapper">
@@ -756,9 +816,9 @@
         <img src="pengantin.jpg" alt="Pengantin" onerror="this.src='comingsoon.jpg'" />
       </div>
 
-      <p class="hero-subtitle">✦ The Wedding Celebration ✦</p>
+      <p class="hero-subtitle">The Wedding Celebration</p>
       <h1 class="hero-title">Riko & Syeirach</h1>
-      <span class="hero-date-badge">12 . 12 . 2026</span>
+      <span class="hero-date-badge">SABTU, 12 DESEMBER 2026</span>
 
       <!-- Countdown Minimalis -->
       <div class="countdown-wrapper">
@@ -782,18 +842,24 @@
     </header>
 
     <!-- ========================================================
-         MEMPELAI: DUAL ARCH DENGAN FOTO ASLI & RENDA EMAS FILIGREE
+         MEMPELAI: DENGAN FOTO ASLI & MAWAR RAMBAT BIRU
          ======================================================== -->
     <section id="couple" class="slide-entry">
+      <!-- Ranting Bunga Besar di Samping Section -->
+      <svg class="floral-branch slide-vine-left" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+      <svg class="floral-branch slide-vine-right" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+
       <span class="section-tag">Pasangan Bahagia</span>
       <h2 class="section-heading">Sang Mempelai</h2>
-      <div class="divider-ornament">✦ ✧ ✦</div>
+      <div class="floral-divider">
+        <svg viewBox="0 0 140 24"><use href="#floral-divider-h"/></svg>
+      </div>
 
       <div class="couple-split">
-        <!-- Pengantin Pria: Riko Randika (FOTO PROFIL ASLI) -->
+        <!-- Pengantin Pria: Riko Randika -->
         <div class="arch-profile-card">
-          <svg class="filigree-corner filigree-tl" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
-          <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+          <svg class="floral-branch flower-corner-tl" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+          <svg class="floral-branch flower-corner-br" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
 
           <div class="profile-photo-circle">
             <img src="fotoriko.jpg" alt="Riko Randika" onerror="this.src='pengantin.jpg'" />
@@ -805,10 +871,10 @@
 
         <div class="ampersand-circle">&</div>
 
-        <!-- Pengantin Wanita: Syeirach Aulia (FOTO PROFIL ASLI) -->
+        <!-- Pengantin Wanita: Syeirach Aulia -->
         <div class="arch-profile-card">
-          <svg class="filigree-corner filigree-tl" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
-          <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+          <svg class="floral-branch flower-corner-tl" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+          <svg class="floral-branch flower-corner-br" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
 
           <div class="profile-photo-circle">
             <img src="fotorara.jpg" alt="Syeirach Aulia" onerror="this.src='pengantin.jpg'" />
@@ -821,12 +887,17 @@
     </section>
 
     <!-- ========================================================
-         GALERI ARCH (HORIZONTAL FLOW + DRAG + ARROWS)
+         GALERI ARCH (HORIZONTAL FLOW + DRAG + ARROWS + BUNGA)
          ======================================================== -->
     <section id="gallery" style="max-width: 1200px" class="slide-entry">
+      <svg class="floral-branch slide-vine-left" style="top: 0" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+      <svg class="floral-branch slide-vine-right" style="bottom: 0" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+
       <span class="section-tag">Abadikan Kenangan</span>
       <h2 class="section-heading">Galeri Momen</h2>
-      <div class="divider-ornament">✦ ✧ ✦</div>
+      <div class="floral-divider">
+        <svg viewBox="0 0 140 24"><use href="#floral-divider-h"/></svg>
+      </div>
 
       <div class="gallery-shell">
         <button class="rail-arrow prev" onclick="moveGallery(-280)">
@@ -857,17 +928,22 @@
     </section>
 
     <!-- ========================================================
-         WAKTU & TEMPAT: TIMELINE CARDS DENGAN RENDA FILIGREE
+         WAKTU & TEMPAT: TIMELINE CARDS + MAWAR BIRU
          ======================================================== -->
     <section id="event" class="slide-entry">
+      <svg class="floral-branch slide-vine-left" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+      <svg class="floral-branch slide-vine-right" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+
       <span class="section-tag">Save The Date</span>
       <h2 class="section-heading">Agenda Bahagia</h2>
-      <div class="divider-ornament">✦ ✧ ✦</div>
+      <div class="floral-divider">
+        <svg viewBox="0 0 140 24"><use href="#floral-divider-h"/></svg>
+      </div>
 
       <div class="event-cards-grid">
         <!-- Akad Nikah -->
         <div class="timeline-card">
-          <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+          <svg class="floral-branch flower-corner-tr" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
           <span class="timeline-badge">Akad Nikah</span>
           <h3>Janji Suci</h3>
           <p><strong><i class="fa-regular fa-clock"></i> Pukul:</strong> 08:00 WIB - Selesai</p>
@@ -877,7 +953,7 @@
 
         <!-- Resepsi -->
         <div class="timeline-card">
-          <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+          <svg class="floral-branch flower-corner-tr" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
           <span class="timeline-badge">Resepsi Pernikahan</span>
           <h3>Perayaan Cinta</h3>
           <p><strong><i class="fa-regular fa-clock"></i> Pukul:</strong> 11:00 - 14:00 WIB</p>
@@ -888,16 +964,18 @@
     </section>
 
     <!-- ========================================================
-         PETA GOOGLE MAPS + KONTUR EMAS
+         PETA GOOGLE MAPS + KARANGAN BUNGA
          ======================================================== -->
     <section id="location" class="slide-entry">
       <span class="section-tag">Petunjuk Lokasi</span>
       <h2 class="section-heading">Peta Digital</h2>
-      <div class="divider-ornament">✦ ✧ ✦</div>
+      <div class="floral-divider">
+        <svg viewBox="0 0 140 24"><use href="#floral-divider-h"/></svg>
+      </div>
 
       <div class="map-shell">
-        <svg class="filigree-corner filigree-tl" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
-        <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+        <svg class="floral-branch flower-corner-tl" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+        <svg class="floral-branch flower-corner-tr" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
 
         <div class="map-frame">
           <iframe
@@ -911,17 +989,17 @@
           >
           </iframe>
         </div>
-        <p style="font-size: 1.25rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 5px">
+        <p style="font-size: 1.3rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 5px">
           Gedung Serba Guna Pemprovsu
         </p>
-        <p style="color: var(--text-subtle); margin-bottom: 20px">
+        <p style="color: var(--text-subtle); margin-bottom: 22px">
           Jl. Williem Iskandar No.9, Kenangan Baru, Kec. Percut Sei Tuan, Kabupaten Deli Serdang, Sumatera Utara 20371
         </p>
         <a
           href="https://www.google.com/maps/search/?api=1&query=Gedung+Serba+Guna+Pemprovsu+Jl+Williem+Iskandar+No+9+Deli+Serdang"
           target="_blank"
           class="btn-blue"
-          style="display: inline-flex; width: auto; padding: 12px 35px"
+          style="display: inline-flex; width: auto; padding: 13px 38px"
         >
           <i class="fa-solid fa-diamond-turn-right"></i> Buka Rute Google Maps
         </a>
@@ -934,11 +1012,13 @@
     <section id="rsvp" class="slide-entry">
       <span class="section-tag">Buku Tamu</span>
       <h2 class="section-heading">Konfirmasi Kehadiran</h2>
-      <div class="divider-ornament">✦ ✧ ✦</div>
+      <div class="floral-divider">
+        <svg viewBox="0 0 140 24"><use href="#floral-divider-h"/></svg>
+      </div>
 
       <div class="rsvp-card-box">
-        <svg class="filigree-corner filigree-tl" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
-        <svg class="filigree-corner filigree-tr" viewBox="0 0 70 70"><use href="#royal-filigree"/></svg>
+        <svg class="floral-branch flower-corner-tl" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+        <svg class="floral-branch flower-corner-tr" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
 
         <form id="formRsvp">
           <div class="input-field-group">
@@ -960,18 +1040,21 @@
               <option value="no">Mohon Maaf Berhalangan Hadir</option>
             </select>
           </div>
-          <button type="submit" class="btn-blue" style="width: 100%; border-radius: 12px">
+          <button type="submit" class="btn-blue" style="width: 100%; border-radius: 14px">
             Kirim Konfirmasi
           </button>
         </form>
+
+        <svg class="floral-branch flower-corner-br" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
+        <svg class="floral-branch flower-corner-bl" viewBox="0 0 120 130"><use href="#blue-wedding-flowers"/></svg>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
       <h2>Riko & Syeirach</h2>
-      <p style="letter-spacing: 2px; color: var(--gold-celestial); margin-bottom: 8px">
-        ✦ THE WEDDING CELEBRATION ✦
+      <p style="letter-spacing: 2px; color: var(--soft-sky); margin-bottom: 8px">
+        THE WEDDING CELEBRATION
       </p>
       <p style="font-size: 0.8rem; color: #94a3b8">Made with ♥ by KedaiKoding</p>
     </footer>
